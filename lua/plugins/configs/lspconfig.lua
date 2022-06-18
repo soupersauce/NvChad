@@ -8,6 +8,7 @@ require("base46").load_highlight "lsp"
 
 local M = {}
 local utils = require "core.utils"
+local navic = require("nvim-navic")
 
 require "ui.lsp"
 
@@ -21,6 +22,7 @@ M.on_attach = function(client, bufnr)
    if client.server_capabilities.signatureHelpProvider then
       require("nvchad.ui.signature").setup(client)
    end
+   navic.attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

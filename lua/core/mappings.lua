@@ -10,10 +10,6 @@ M.general = {
 
    i = {
 
-      -- go to  beginning and end
-      ["<C-b>"] = { "<ESC>^i", "論 beginning of line" },
-      ["<C-e>"] = { "<End>", "壟 end of line" },
-
       -- navigate within insert mode
       ["<C-h>"] = { "<Left>", "  move left" },
       ["<C-l>"] = { "<Right>", " move right" },
@@ -23,7 +19,7 @@ M.general = {
 
    n = {
 
-      ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
+      ["<ESC>"] = { "<cmd> let @/="" <CR>", "  no highlight" },
 
       -- switch between windows
       ["<C-h>"] = { "<C-w>h", " window left" },
@@ -31,18 +27,6 @@ M.general = {
       ["<C-j>"] = { "<C-w>j", " window down" },
       ["<C-k>"] = { "<C-w>k", " window up" },
 
-      -- save
-      ["<C-s>"] = { "<cmd> w <CR>", "﬚  save file" },
-
-      -- Copy all
-      ["<C-c>"] = { "<cmd> %y+ <CR>", "  copy whole file" },
-
-      -- line numbers
-      ["<leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
-      ["<leader>rn"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
-
-      -- update nvchad
-      ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "  update nvchad" },
 
       ["<leader>tt"] = {
          function()
@@ -56,25 +40,31 @@ M.general = {
    t = {
       ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
    },
+
+   v = {
+      ["Q"] = { "<cmd>!!$SHELL<CR>", "Exec line as command in $SHELL" },
+      ["<"] = { "<gv", "Reselect block after indent" },
+      [">"] = { ">gv", "Reselect block after indent" },
+   }
 }
 
 M.bufferline = {
 
    n = {
       -- new buffer
-      ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
+      -- ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
 
       -- cycle through buffers
-      ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>", "  cycle next buffer" },
-      ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "  cycle prev buffer" },
+      -- ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>", "  cycle next buffer" },
+      -- ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "  cycle prev buffer" },
 
       -- close buffer + hide terminal buffer
-      ["<leader>x"] = {
-         function()
-            require("core.utils").close_buffer()
-         end,
-         "   close buffer",
-      },
+      -- ["<leader>x"] = {
+      --    function()
+      --       require("core.utils").close_buffer()
+      --    end,
+      --    "   close buffer",
+      -- },
    },
 }
 

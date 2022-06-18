@@ -17,12 +17,12 @@ local plugins = {
       end,
    },
 
-   ["NvChad/nvterm"] = {
-      module = "nvterm",
-      config = function()
-         require "plugins.configs.nvterm"
-      end,
-   },
+   -- ["NvChad/nvterm"] = {
+   --    module = "nvterm",
+   --    config = function()
+   --       require "plugins.configs.nvterm"
+   --    end,
+   -- },
 
    ["kyazdani42/nvim-web-devicons"] = {
       module = "nvim-web-devicons",
@@ -160,6 +160,13 @@ local plugins = {
       end,
    },
 
+   ["SmiteshP/nvim-navic"] = {
+      after = "lspconfig",
+      config = function()
+         require("nvim-navic").setup()
+      end,
+   },
+
    ["numToStr/Comment.nvim"] = {
       module = "Comment",
       keys = { "gc", "gb" },
@@ -169,18 +176,18 @@ local plugins = {
    },
 
    -- file managing , picker etc
-   ["kyazdani42/nvim-tree.lua"] = {
+   ["luukbaal/nnn.nvim"] = {
       ft = "alpha",
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
       config = function()
-         require "plugins.configs.nvimtree"
+         require "plugins.configs.nnn_nvim"
       end,
    },
 
-   ["nvim-telescope/telescope.nvim"] = {
-      cmd = "Telescope",
+   ["ibhagwan/fzf-lua"] = {
+      cmd = "FzfLua",
       config = function()
-         require "plugins.configs.telescope"
+         require "plugins.configs.fzf-lua"
       end,
    },
 
